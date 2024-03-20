@@ -1,16 +1,11 @@
 package Bill;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-
 import Views.Block;
 import Views.Board;
-
-
-
 
 public class Bill implements Serializable {
     private String cashier;
@@ -19,11 +14,14 @@ public class Bill implements Serializable {
     private String time;
     private HashMap<String, ArrayList<Object>> items = new HashMap<String, ArrayList<Object>>();
 
+    // Constructor
     public Bill(String cashier, String branch) {
         this.cashier = cashier;
         this.branch = branch;
         this.date = new Date().toString();
     }
+
+    // Getters
     public String getBranch() {
         return this.branch;
     }
@@ -36,6 +34,8 @@ public class Bill implements Serializable {
     public ArrayList<Object> getItems() {
         return new ArrayList<Object>(this.items.values());
     }
+
+    // Add and Remove Items
     public void addItem(String key, ArrayList<Object> value, Integer quantity) {
 
         value.add(quantity);
@@ -50,6 +50,7 @@ public class Bill implements Serializable {
         this.items.remove(key);
     }
 
+    // Calculate Total Amount and Discount
     public double totalDiscount(){
         double total = 0;
         for (ArrayList<Object> value : this.items.values()) {
@@ -68,6 +69,7 @@ public class Bill implements Serializable {
         return Math.round(total * 100.0) / 100.0;
     }
 
+    // Print Bill using a library
     public void printBill(Bill bill) {
         Board board = new Board(120);
 
@@ -94,9 +96,6 @@ public class Bill implements Serializable {
         itemColumn.setRightBlock(quantityColumn);
         quantityColumn.setRightBlock(priceColumn);
         priceColumn.setRightBlock(discountColumn);
-        
-        
-        
         
         // Items
         ArrayList<Object> items = bill.getItems();

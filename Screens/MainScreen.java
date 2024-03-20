@@ -4,6 +4,7 @@ package Screens;
 public class MainScreen extends Screens{
     final String options = "[1] Login\n[2] Settings\n[3] Exit\n";
 
+    // Main Screen of the System
     public void mainScreen() {
         System.out.println(Screens.title);
         System.out.println(options);

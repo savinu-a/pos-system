@@ -5,6 +5,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Screens {
+    // ASCII Art
     public static final String title = """
         _______  __   __  _______  _______  ______       _______  _______  __   __  ___   __    _  _______ 
         |       ||  | |  ||       ||       ||    _ |     |       ||   _   ||  | |  ||   | |  |  | ||       |
@@ -17,6 +18,7 @@ public class Screens {
 
     public static final String choice = "Enter your choice: ";
 
+    // Clear the Screen
     public static void clearScreen() {
         try {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
@@ -25,6 +27,7 @@ public class Screens {
         }
     }
 
+    // Get User's Choice
     public static int getChoice(int n) {
         Scanner input = new Scanner(System.in);
         int choice;
@@ -42,6 +45,7 @@ public class Screens {
         return choice;
     }
 
+    // Get User's Input
     public static String getString() {
         Scanner input = new Scanner(System.in);
         String name = input.nextLine();
@@ -52,6 +56,7 @@ public class Screens {
         return name;
     }
 
+    // Get User's Integer Input
     public static int getInt() {
         Scanner input = new Scanner(System.in);
         int number;

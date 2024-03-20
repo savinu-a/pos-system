@@ -2,7 +2,6 @@ package Screens;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
-
 import Bill.Bill;
 import utils.Utils;
 
@@ -10,12 +9,14 @@ public class BillScreen extends Screens{
     final String options = "[1] Add Items\n[2] Generate Bill\n[3] Set Bill as Pending\n[4] Go Back";
     Hashtable<String, ArrayList<Object>> items = Utils.loadItems();
 
+    // Exception for item not found
     class ItemNotFoundException extends Exception {
         public ItemNotFoundException(String message) {
             super(message);
         }
     }
     
+    // Bill Screen
     public void billScreen(Bill bill) {
         Hashtable<String, ArrayList<Object>> items = Utils.loadItems();
 

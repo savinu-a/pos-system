@@ -3,6 +3,7 @@ package Screens;
 public class SettingsScreen extends Screens {
     final String options = "[1] Change Branch Name\n[2] Go Back\n";
 
+    // Settings Screen
     public void settingsScreen() {
         System.out.println(Screens.title);
         System.out.println(options);
