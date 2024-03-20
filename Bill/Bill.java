@@ -9,6 +9,7 @@ import Views.Board;
 
 public class Bill implements Serializable {
     private String cashier;
+    private String customer;
     private String date;
     private String branch;
     private String time;
@@ -22,8 +23,12 @@ public class Bill implements Serializable {
         this.customer = customer;
         this.date = new Date().toString();
     }
-
-    // Getters
+    public Bill(String cashier,String customer, String branch) {
+        this.cashier = cashier;
+        this.customer = customer;
+        this.branch = branch;
+        this.date = new Date().toString();
+    }
     public String getBranch() {
         return this.branch;
     }
