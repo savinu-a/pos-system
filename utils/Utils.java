@@ -8,9 +8,9 @@ import java.util.Arrays;
 import java.util.Hashtable;
 
 public class Utils {
+    public static String branch;
     final static String ITEM_LIST_PATH = "db/itemList.txt";
-    final static String CASHIER_LIST_PATH = "db/cashierList.txt";
-    final static String CUSTOMER_LIST_PATH = "db/customerList.txt";
+    final static String BRANCH_PATH = "db/branch.txt";
     
     public static Hashtable<String, ArrayList<Object>> loadItems() {
         Hashtable<String, ArrayList<Object>> items = new Hashtable<String, ArrayList<Object>>();
@@ -42,53 +42,22 @@ public class Utils {
 
     }
 
-    public static Hashtable<String, ArrayList<Object>> loadCashiers() {
-        Hashtable<String, ArrayList<Object>> cashiers = new Hashtable<String, ArrayList<Object>>();
-
-        try (BufferedReader br = new BufferedReader(new FileReader(CASHIER_LIST_PATH))) {
-            br.readLine(); // Skip the first line
-            String cashier;
-            while ((cashier = br.readLine()) != null) {
-                String[] values = cashier.split(",");
-
-                String cashierID = values[0].trim();
-                String cashierName = values[1].trim();
-                String password = values[2].trim();
-                
-                ArrayList<Object> cashierDetails = new ArrayList<Object>();
-                cashierDetails.addAll(Arrays.asList(cashierName, password));
-
-                cashiers.put(cashierID, cashierDetails);
-                
-            }
+    public static String getBranch() {
+        try (BufferedReader br = new BufferedReader(new FileReader(BRANCH_PATH))) {
+            branch = br.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return cashiers;
-
+        return branch;
     }
 
-    public static Hashtable<String, String> loadCustomers() {
-        Hashtable<String, String> customers = new Hashtable<String, String>();
-
-        try (BufferedReader br = new BufferedReader(new FileReader(CUSTOMER_LIST_PATH))) {
-            br.readLine(); // Skip the first line
-            String customer;
-            while ((customer = br.readLine()) != null) {
-                String[] values = customer.split(",");
-
-                String mobile = values[0].trim();
-                String customerName = values[1].trim();
-
-                customers.put(mobile, customerName);
-                
-            }
+    public static void setBranch(String branch) {
+        try {
+            java.io.FileWriter fw = new java.io.FileWriter( BRANCH_PATH);
+            fw.write(branch);
+            fw.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return customers;
-
     }
 }
