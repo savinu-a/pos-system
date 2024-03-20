@@ -5,6 +5,9 @@ import java.util.Hashtable;
 import java.util.Scanner;
 import utils.Utils;
 
+import utils.Utils;
+import Bill.Bill;
+
 public class LoginScreen extends Screens {
     final String getID = "Enter your ID: ";
     final String getpassword = "Enter your password: ";

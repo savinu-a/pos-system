@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Hashtable;
+
+import Screens.MainScreen;
 import utils.Utils;
 
 import Screens.MainScreen;
@@ -9,5 +11,4 @@ public class Main {
         MainScreen mainScreen = new MainScreen();
         mainScreen.mainScreen();
     }
-    
 }
