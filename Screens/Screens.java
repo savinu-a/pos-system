@@ -19,7 +19,7 @@ public class Screens {
 
     public static void clearScreen() {
         try {
-            new ProcessBuilder("clear").inheritIO().start().waitFor();
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
