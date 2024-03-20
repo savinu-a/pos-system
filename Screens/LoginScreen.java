@@ -13,10 +13,8 @@ public class LoginScreen extends Screens {
 
     public void login() {
         System.out.println(Screens.title);
-        
         Hashtable<String, ArrayList<Object>> cashiers = Utils.loadCashiers();
         handleLogin(cashiers);
-        
     }
 
     // Login Screen

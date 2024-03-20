@@ -1,8 +1,13 @@
 package Screens;
 
+import java.util.ArrayList;
+import java.util.Hashtable;
+
+import utils.Utils;
 
 public class MainScreen extends Screens{
     final String options = "[1] Login\n[2] Settings\n[3] Exit\n";
+    Hashtable<String, ArrayList<Object>> cashiers = Utils.loadCashiers();
 
     // Main Screen of the System
     public void mainScreen() {
@@ -14,7 +19,7 @@ public class MainScreen extends Screens{
             case 1:
                 Screens.clearScreen();
                 LoginScreen login = new LoginScreen();
-                login.handleLogin(null);
+                login.handleLogin(cashiers);
                 break;
             case 2:
                 Screens.clearScreen();
