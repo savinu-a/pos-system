@@ -3,12 +3,14 @@ package Screens;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+import Bill.Bill;
 import utils.Utils;
 
 public class BillScreen extends Screens{
     final String options = "[1] Add Items\n[2] Generate Bill\n[3] Set Bill as Pending\n[4] Go Back";
+    Hashtable<String, ArrayList<Object>> items = Utils.loadItems();
     
-    public void billScreen() {
+    public void billScreen(Bill bill) {
         Hashtable<String, ArrayList<Object>> items = Utils.loadItems();
 
         System.out.println(options);
@@ -27,7 +29,9 @@ public class BillScreen extends Screens{
                     System.out.println("Item Name: " + item.get(0));
                     System.out.print("Enter the quantity: ");
                     int quantity = getInt();
+                    bill.addItem(code, item, quantity);
                     System.out.println("Item added to the bill!");
+                    billScreen(bill);
                 }
                 
 

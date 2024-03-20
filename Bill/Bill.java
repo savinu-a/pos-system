@@ -13,7 +13,7 @@ public class Bill {
     private String date;
     private String branch;
     private String time;
-    private HashMap<String, ArrayList<Object>> items;
+    private HashMap<String, ArrayList<Object>> items = new HashMap<String, ArrayList<Object>>();
 
     public Bill(String cashier, String branch) {
         this.date = new Date().toString();
@@ -33,8 +33,8 @@ public class Bill {
     public void addItem(String key, ArrayList<Object> value, Integer quantity) {
 
         value.add(quantity);
-        double price = (double)value.get(4) * quantity;
-        double discount = price * (double)value.get(5);
+        double price = (double)value.get(3) * quantity;
+        double discount = price * (double)value.get(4);
         value.add(price);
         value.add(discount);
         this.items.put(key, value);
