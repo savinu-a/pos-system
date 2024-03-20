@@ -33,11 +33,9 @@ public class BillScreen extends Screens{
                     System.out.println("Item added to the bill!");
                     billScreen(bill);
                 }
-                
-
                 break;
             case 2:
-                System.out.println("Generate Bill");
+                bill.printBill(bill);
                 break;
             case 3:
                 Screens.clearScreen();

@@ -4,7 +4,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.io.Serializable;
+
+import Views.Block;
+import Views.Board;
 
 
 
@@ -50,7 +52,9 @@ public class Bill implements Serializable {
     public double totalDiscount(){
         double total = 0;
         for (ArrayList<Object> value : this.items.values()) {
-            total += (double)value.get(7);   
+            total += (double)value.get(7);
+                
+            
         }
         return Math.round(total * 100.0) / 100.0;
     }
@@ -63,8 +67,56 @@ public class Bill implements Serializable {
         return Math.round(total * 100.0) / 100.0;
     }
 
-    public String getCashier() {
-        return cashier;
-    }
+    public void printBill(Bill bill) {
+        Board board = new Board(120);
 
+        // Title
+        Block title = new Block(board, 105, 1, "Super Savings Supermarket");
+        title.setDataAlign(Block.DATA_CENTER);
+        title.allowGrid(false);
+        board.setInitialBlock(title);
+
+        Block branch = new Block(board, 105, 1, "Branch: " + bill.getBranch());
+        branch.setDataAlign(Block.DATA_CENTER);
+        title.setBelowBlock(branch);
+
+        Block cashier = new Block(board, 105, 1, "Date: "+ bill.getDate()+"Cashier: " + bill.getChashier());
+        cashier.setDataAlign(Block.DATA_CENTER);
+        branch.setBelowBlock(cashier);
+
+        Block itemColumn = new Block(board, 27, 1, "Item");
+        Block quantityColumn = new Block(board, 25, 1, "Quantity");
+        Block priceColumn = new Block(board, 25, 1, "Price");
+        Block discountColumn = new Block(board, 25, 1, "Discount");
+        
+        cashier.setBelowBlock(itemColumn);
+        itemColumn.setRightBlock(quantityColumn);
+        quantityColumn.setRightBlock(priceColumn);
+        priceColumn.setRightBlock(discountColumn);
+        
+        
+        
+        
+        // Items
+        ArrayList<Object> items = bill.getItems();
+        for (Object item : items) {
+            ArrayList<Object> itemDetails = (ArrayList<Object>) item;
+            Block itemBlock = new Block(board, 27, 1, itemDetails.get(0).toString());
+            Block quantityBlock = new Block(board, 25, 1, itemDetails.get(5).toString());
+            Block priceBlock = new Block(board, 25, 1, itemDetails.get(6).toString());
+            Block discountBlock = new Block(board, 25, 1, itemDetails.get(7).toString()); 
+            itemColumn.setBelowBlock(itemBlock);
+            itemBlock.setRightBlock(quantityBlock);
+            quantityBlock.setRightBlock(priceBlock);
+            priceBlock.setRightBlock(discountBlock); 
+            itemColumn = itemBlock;                    
+        }
+
+        Block total = new Block(board, 105, 1, "Total: " + bill.totalAmount());
+        itemColumn.setBelowBlock(total);
+        Block discount = new Block(board, 105, 1, "Discount: " + bill.totalDiscount());
+        total.setBelowBlock(discount);
+
+        System.out.println(board.invalidate().build().getPreview());
+    }
 }
