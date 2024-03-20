@@ -2,6 +2,8 @@ package Screens;
 
 import java.util.Scanner;
 
+import Bill.Bill;
+
 public class LoginScreen extends Screens {
     final String getname = "Enter your name: ";
     final String getpassword = "Enter your password: ";
@@ -20,7 +22,8 @@ public class LoginScreen extends Screens {
         int choice = getChoice(3);
         switch (choice) {
             case 1:
-                System.out.println("New Bill");
+                BillScreen showBill = new BillScreen();
+                showBill.billScreen();
                 break;
             case 2:
                 System.out.println("Pending Bill");
