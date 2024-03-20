@@ -49,15 +49,15 @@ public class BillScreen extends Screens{
                 bill.printBill(bill);
                 break;
             case 3:
-                bill.setPending();
+                Utils.serialize(bill,"pending.ser");
                 System.out.println("Bill set as pending!");
                 LoginScreen login = new LoginScreen();
                 login.login();
                 break;
             case 4:
                 Screens.clearScreen();
-                LoginScreen login = new LoginScreen();
-                login.login();
+                LoginScreen login2 = new LoginScreen();
+                login2.login();
                 break;
         }
     }

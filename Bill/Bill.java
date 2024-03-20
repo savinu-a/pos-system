@@ -1,5 +1,6 @@
 package Bill;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,7 +12,7 @@ import Views.Board;
 
 
 
-public class Bill {
+public class Bill implements Serializable {
     private String cashier;
     private String date;
     private String branch;
@@ -19,6 +20,8 @@ public class Bill {
     private HashMap<String, ArrayList<Object>> items = new HashMap<String, ArrayList<Object>>();
 
     public Bill(String cashier, String branch) {
+        this.cashier = cashier;
+        this.branch = branch;
         this.date = new Date().toString();
     }
     public String getBranch() {
@@ -36,8 +39,8 @@ public class Bill {
     public void addItem(String key, ArrayList<Object> value, Integer quantity) {
 
         value.add(quantity);
-        double price = (double)value.get(3) * quantity;
-        double discount = price * (double)value.get(4);
+        double price = Math.round((double)value.get(3) * quantity * 100.0) / 100.0;
+        double discount = Math.round(price * (double)value.get(4) * 100.0) / 100.0;
         value.add(price);
         value.add(discount);
         this.items.put(key, value);
@@ -56,13 +59,11 @@ public class Bill {
         }
         return Math.round(total * 100.0) / 100.0;
     }
-    
+
     public double totalAmount(){
         double total = 0;
         for (ArrayList<Object> value : this.items.values()) {
-            total += (double)value.get(7);
-                
-            
+            total += (double)value.get(7);   
         }
         return Math.round(total * 100.0) / 100.0;
     }
