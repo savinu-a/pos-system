@@ -2,10 +2,12 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import utils.Utils;
 
+import Screens.MainScreen;
+
 public class Main {
     public static void main(String[] args) {
-        Hashtable<String, ArrayList<Object>> items = Utils.loadItems();
-        items.forEach((key, value) -> System.out.println(key + ": " + value));
+        MainScreen mainScreen = new MainScreen();
+        mainScreen.mainScreen();
     }
     
 }
