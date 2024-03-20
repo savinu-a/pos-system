@@ -14,7 +14,7 @@ public class MainScreen extends Screens{
             case 1:
                 Screens.clearScreen();
                 LoginScreen login = new LoginScreen();
-                login.login();
+                login.handleLogin(null);
                 break;
             case 2:
                 Screens.clearScreen();

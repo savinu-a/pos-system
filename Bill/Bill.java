@@ -13,7 +13,6 @@ public class Bill implements Serializable {
     private String date;
     private String branch;
     private String time;
-    private String customer;
     private HashMap<String, ArrayList<Object>> items = new HashMap<String, ArrayList<Object>>();
 
     // Constructor
@@ -23,12 +22,7 @@ public class Bill implements Serializable {
         this.customer = customer;
         this.date = new Date().toString();
     }
-    public Bill(String cashier,String customer, String branch) {
-        this.cashier = cashier;
-        this.customer = customer;
-        this.branch = branch;
-        this.date = new Date().toString();
-    }
+
     public String getBranch() {
         return this.branch;
     }
