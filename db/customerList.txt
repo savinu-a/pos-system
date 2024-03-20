@@ -1,0 +1,5 @@
+#phoneNumber, #customerName
+0742384738,Isurika
+0774903937,Tumasha
+0719373489,Chamod
+0763738290,Savinu
