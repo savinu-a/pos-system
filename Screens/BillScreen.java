@@ -37,7 +37,7 @@ public class BillScreen extends Screens{
                         System.out.print("Enter the quantity: ");
                         int quantity = getInt();
                         bill.addItem(code, item, quantity);
-                        System.out.println("Item added to the bill!");
+                        System.out.println("Item added to the bill!\n");
                         billScreen(bill);
                     }
                 }
