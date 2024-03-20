@@ -3,9 +3,6 @@ package Screens;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.Scanner;
-import utils.Utils;
-
 import utils.Utils;
 import Bill.Bill;
 
@@ -22,6 +19,7 @@ public class LoginScreen extends Screens {
         
     }
 
+    // Login Screen
     public void handleLogin(Hashtable<String, ArrayList<Object>> cashiers){
         System.out.print(getID);
         String id = getString();

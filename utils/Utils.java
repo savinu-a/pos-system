@@ -18,7 +18,8 @@ public class Utils {
     final static String CASHIER_LIST_PATH = "db/cashierList.txt";
     final static String CUSTOMER_LIST_PATH = "db/customerList.txt";
     final static String BRANCH_PATH = "db/branch.txt";
-    
+
+    // Load items from the file
     public static Hashtable<String, ArrayList<Object>> loadItems() {
         Hashtable<String, ArrayList<Object>> items = new Hashtable<String, ArrayList<Object>>();
 
@@ -49,6 +50,7 @@ public class Utils {
 
     }
 
+    // Load cashiers from the file
     public static Hashtable<String, ArrayList<Object>> loadCashiers() {
         Hashtable<String, ArrayList<Object>> cashiers = new Hashtable<String, ArrayList<Object>>();
 
@@ -76,6 +78,7 @@ public class Utils {
 
     }
 
+    // Load customers from the file
     public static Hashtable<String, String> loadCustomers() {
         Hashtable<String, String> customers = new Hashtable<String, String>();
 
@@ -99,6 +102,7 @@ public class Utils {
 
     }
 
+    // Getters and Setters for Branch
     public static String getBranch() {
         try (BufferedReader br = new BufferedReader(new FileReader(BRANCH_PATH))) {
             branch = br.readLine();
@@ -117,6 +121,8 @@ public class Utils {
             e.printStackTrace();
         }
     }
+    
+    // Serialize and Deserialize Bill
     public static void serialize(Bill bill, String filename) {
         try (FileOutputStream fileOut = new FileOutputStream(filename);
              ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
