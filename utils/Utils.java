@@ -87,10 +87,8 @@ public class Utils {
             String customer;
             while ((customer = br.readLine()) != null) {
                 String[] values = customer.split(",");
-
                 String mobile = values[0].trim();
                 String customerName = values[1].trim();
-
                 customers.put(mobile, customerName);
                 
             }

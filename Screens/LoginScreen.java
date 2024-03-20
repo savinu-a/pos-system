@@ -37,7 +37,9 @@ public class LoginScreen extends Screens {
                 int choice = getChoice(3);
                 switch (choice) {
                     case 1:
-                        Bill bill = new Bill(name,Utils.getBranch());
+                        CustomerScreen customerScreen = new CustomerScreen();
+                        String customerName = customerScreen.customerScreen();
+                        Bill bill = new Bill(name,customerName,Utils.getBranch());
                         BillScreen billScreen = new BillScreen();
                         billScreen.billScreen(bill);
                         break;

@@ -12,12 +12,14 @@ public class Bill implements Serializable {
     private String date;
     private String branch;
     private String time;
+    private String customer;
     private HashMap<String, ArrayList<Object>> items = new HashMap<String, ArrayList<Object>>();
 
     // Constructor
-    public Bill(String cashier, String branch) {
+    public Bill(String cashier, String customer ,String branch) {
         this.cashier = cashier;
         this.branch = branch;
+        this.customer = customer;
         this.date = new Date().toString();
     }
 
@@ -87,12 +89,16 @@ public class Bill implements Serializable {
         cashier.setDataAlign(Block.DATA_CENTER);
         branch.setBelowBlock(cashier);
 
+        Block customer = new Block(board, 105, 1, "Customer: " + bill.customer);
+        customer.setDataAlign(Block.DATA_CENTER);
+        cashier.setBelowBlock(customer);
+
         Block itemColumn = new Block(board, 27, 1, "Item");
         Block quantityColumn = new Block(board, 25, 1, "Quantity");
         Block priceColumn = new Block(board, 25, 1, "Price");
         Block discountColumn = new Block(board, 25, 1, "Discount");
         
-        cashier.setBelowBlock(itemColumn);
+        customer.setBelowBlock(itemColumn);
         itemColumn.setRightBlock(quantityColumn);
         quantityColumn.setRightBlock(priceColumn);
         priceColumn.setRightBlock(discountColumn);
