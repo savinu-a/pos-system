@@ -5,7 +5,7 @@
 004,Sandwitch bread,1,,255,0
 005,Icecream Corn,1,,1100,0.25
 006,Prima Noodles Twist,1,,290,0
-007,Flour,500,g,250,,0.3
+007,Flour,500,g,250,0.3
 008,Ritzbury Chocolate Fingers,1,,380,0
 009,Maliban Chocolate Cream Less Sugar,1,,145,0
 010,Vaseline Lip Balm,1,,300,0.1
