@@ -51,4 +51,18 @@ public class Screens {
         }
         return name;
     }
+
+    public static int getInt() {
+        Scanner input = new Scanner(System.in);
+        int number;
+        try {
+            number = input.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.print("Invalid Input! Please enter a valid integer: ");
+            input.nextLine();
+            number = getInt();
+        }
+        return number;
+    }
+
 }

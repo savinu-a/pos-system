@@ -36,7 +36,7 @@ public class Bill implements Serializable {
     public void addItem(String key, ArrayList<Object> value, Integer quantity) {
 
         value.add(quantity);
-        double price = (double)value.get(3) * quantity;
+        double price = Math.round((double)value.get(3) * quantity * 100.0) / 100.0;
         double discount = Math.round(price * (double)value.get(4) * 100.0) / 100.0;
         value.add(price);
         value.add(discount);
@@ -50,7 +50,7 @@ public class Bill implements Serializable {
     public double totalDiscount(){
         double total = 0;
         for (ArrayList<Object> value : this.items.values()) {
-            total += (double)value.get(8);   
+            total += (double)value.get(7);   
         }
         return Math.round(total * 100.0) / 100.0;
     }

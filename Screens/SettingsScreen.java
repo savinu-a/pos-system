@@ -10,8 +10,10 @@ public class SettingsScreen extends Screens {
         int choice = Screens.getChoice(2);
         switch (choice) {
             case 1:
+                System.out.println("\nCurrent Branch Name: " + utils.Utils.getBranch());
                 System.out.print("Enter your Branch name: ");
                 String name = getString();
+                utils.Utils.setBranch(name);
                 System.out.println("Name changed to " + name);
                 break;
             case 2:
