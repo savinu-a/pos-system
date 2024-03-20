@@ -1,5 +1,6 @@
 package Screens;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
@@ -44,7 +45,14 @@ public class LoginScreen extends Screens {
                         billScreen.billScreen(bill);
                         break;
                     case 2:
-                        System.out.println("Pending Bill");
+                        File pendingFile = new File("pending.ser");
+                        if (pendingFile.exists()) {
+                            bill = (Bill) Utils.deserialize("pending.ser");
+                            billScreen = new BillScreen();
+                            billScreen.billScreen(bill);
+                        } else {
+                            System.out.println("No pending bills!");
+                        }
                         break;
                     case 3:
                         Screens.clearScreen();
