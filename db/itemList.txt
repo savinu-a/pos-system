@@ -1,0 +1,21 @@
+#itemCode, #itemName, #unitSize, #unit, #price, #discount
+001,Sugar,100,g,42.8,0.1
+002,Munchee Wafer Chocolate Biscuits,1,,520,0
+003,Karapincha Loaf,1,,260,0.5
+004,Sandwitch bread,1,,255,0
+005,Icecream Corn,1,,1100,0.25
+006,Prima Noodles Twist,1,,290,0
+007,Flour,500,g,250,0.3
+008,Ritzbury Chocolate Fingers,1,,380,0
+009,Maliban Chocolate Cream Less Sugar,1,,145,0
+010,Vaseline Lip Balm,1,,300,0.1
+011,Velvet Hand Wash,1,,1350,0
+012,Bell Pepper Green,100,g,191,0.15
+013,Gotukola,100,g,100,0.1
+014,Cabbage Leaves,100,g,54,0
+015,Lettuce,100,g,57,0
+016,Salad Cucumber,300,g,96,0
+017,Brinjals,300,g,102,0.15
+018,Dambala,100,g,47,0.2
+019,Green Chilies,100,g,61,0.1
+020,Lime,100,g,32.5,0
