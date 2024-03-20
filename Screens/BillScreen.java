@@ -38,6 +38,10 @@ public class BillScreen extends Screens{
                 bill.printBill(bill);
                 break;
             case 3:
+                Utils.serialize(bill,"pending.ser");
+                System.out.println("Bill set as pending!");
+                break;
+            case 4:
                 Screens.clearScreen();
                 LoginScreen login = new LoginScreen();
                 login.login();
