@@ -1,0 +1,3 @@
+#itemCode, #itemName, #unitSize, #unit, #price, #discount
+001,Sugar,100,g,42.8,0.1
+002,Biscuits,1,,100,0
