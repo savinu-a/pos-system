@@ -1,5 +1,6 @@
 package Bill;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -16,6 +17,18 @@ public class Bill {
 
     public Bill(String cashier, String branch) {
         this.date = new Date().toString();
+    }
+    public String getBranch() {
+        return this.branch;
+    }
+    public String getChashier() {
+        return this.cashier;
+    }
+    public String getDate() {
+        return this.date;
+    }
+    public ArrayList<Object> getItems() {
+        return new ArrayList<Object>(this.items.values());
     }
     public void addItem(String key, ArrayList<Object> value, Integer quantity) {
 
